@@ -8,8 +8,6 @@ import { Component, OnInit} from '@angular/core';
 export class DashboardComponent implements OnInit {
 
   w3_open() {
-  document.getElementById('main').style.marginLeft = '15%';
-  document.getElementById('mySidebar').style.width = '15%';
   document.getElementById('mySidebar').style.display = 'block';
   document.getElementById('openNav').style.display = 'none';
   document.getElementById('closeNav').style.display = 'inline-block';
