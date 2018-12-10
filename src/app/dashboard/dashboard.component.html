@@ -1,0 +1,35 @@
+<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+    <a href="#" class="w3-bar-item w3-button">Link 1</a>
+    <a href="#" class="w3-bar-item w3-button">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button">Link 3</a>
+  </div>
+  
+  <div id="main">
+  
+  <div class="w3-teal">
+   
+    <div class="w3-container">
+        <nav class="navbar navbar-default">
+          <button id="closeNav" class="w3-bar-item w3-button w3-large"
+            (click)="w3_close()">&times;</button>
+          <button id="openNav" class="w3-button w3-teal w3-xlarge" (click)="w3_open()">&#9776;</button>
+            <!-- Collection of nav links, forms, and other content for toggling -->
+            <div id="navbarCollapse" class="">
+                <form class="navbar-form navbar-middle">
+                    <div class="input-group navbar-middle">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                        </span>
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+  </div>
+
+  </div>
+  

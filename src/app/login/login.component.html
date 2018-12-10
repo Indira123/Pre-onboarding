@@ -1,0 +1,18 @@
+<div class="loginWrapper">
+<div class="container">
+<form action="/action_page.php">
+   <img src="../../assets/images/YashLogo.jpg" />
+   <br/>
+   <h3>Login to yash Portal</h3>
+   <span class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam venenatis lobortis libero</span><br/>
+     <input type="text" placeholder="Username" [(ngModel)]="username" name="username" required>
+      <br/>
+     <input type="password" placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
+     <br/>
+     <button mat-raised-button (click)="login()" color="primary">SIGN IN</button>
+     <br/>
+     <a class="forgotPass" href="">Forgot password?</a>
+ </form>
+</div>
+</div>
+ 
