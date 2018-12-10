@@ -213,3 +213,13 @@ ul.recentIDs li:hover, ul.recentEmp li:hover{
 .dashboardContainet h4{
 text-align: left !important;
 }
+.upload {padding-left:2%;
+        padding-top:2%;
+        padding-bottom:2%;}
+
+input[type='file']{
+display: inline;
+padding: 1em 5em;
+border: 1px solid #CCC;
+border-radius: 10px;
+}

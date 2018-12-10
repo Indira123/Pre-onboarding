@@ -11,9 +11,18 @@
      <br/>
      <button mat-raised-button (click)="login()" color="primary">SIGN IN</button>
      <br/>
-     <a class="forgotPass" href="">Forgot password?</a>
+     <a class="forgotPass" data-target="#forgotPassword">Forgot password?</a>
  </form>
+ <div class="modal fade" id="forgotPassword" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-body detailsbackgruond ">
+             <i class="fa fa-lock"></i>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
-<button routerLink="/userDetail">User detail</button>
 </div>
  
