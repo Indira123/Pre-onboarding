@@ -46,11 +46,19 @@ mat-toolbar-row {
 }  
 input{
     padding: 10px;
-    border-radius: 20px;
+    
     width: 100%;
     border: 1px solid #666;
     outline: none;
 }
 table{width: 100%;}
 
-.formspace{padding: 2% 0;}
+.formemail{padding-top:2%;}
+form{width:50%;}
+.content-left{text-align: left; }
+.userdetails{text-align: left; }
+.emaildisplay{display: inline;}
+.detailsbackgruond{background-color: aqua;}
+.upload{padding-left:2%;
+        padding-top:2%;
+        padding-bottom:2%;}
