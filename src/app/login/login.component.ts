@@ -13,16 +13,15 @@ export class LoginComponent implements OnInit {
   errorMessage = 'Invalid entry';
   username: string;
   password: string;
-  constructor(private router: Router) { 
+  constructor(private router: Router) {
   }
-  login() : void {
-    if(this.username == 'admin' && this.password == 'admin'){
-     this.router.navigate(["dashboard"]);
-    }else {
-      alert("Invalid credentials");
+  login(): void {
+    if (this.username === 'admin' && this.password === 'admin') {
+     this.router.navigate(['dashboard']);
+    } else {
+      alert('Invalid credentials');
     }
   }
-  
   ngOnInit() {
   }
 
