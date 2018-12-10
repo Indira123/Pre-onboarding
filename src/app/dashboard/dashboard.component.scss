@@ -59,13 +59,14 @@ display: inline-block;
   padding: 10px;
   font-weight: 400;
 }
+.w3-bar-item.active{
+  background: linear-gradient(to right top, #112db1, #0049c5, #0063d5, #097ce4, #3295f0);
+  color: #FFF;
+  border-radius: 15px;
+  font-weight: bold;
+}
 .w3-bar-item:hover{
   background-color:#9dc1ec !important;
-
-}
-.w3-bar-item:active{
-  background-color:blue;
-  color: #FFF;
 }
 .input-group input{
   height: 3em;
@@ -80,7 +81,7 @@ i.pdf{
 }
 .uploadDoc{
   padding: 0.8em 5em;
-  background: blue;
+  background: linear-gradient(to right top, #112db1, #0049c5, #0063d5, #097ce4, #3295f0);
   color: #FFF;
   font-weight: bold;
   border-radius: 15px;
