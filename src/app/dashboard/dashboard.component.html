@@ -1,33 +1,59 @@
 <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
-    <a href="#" class="w3-bar-item w3-button">Link 1</a>
-    <a href="#" class="w3-bar-item w3-button">Link 2</a>
-    <a href="#" class="w3-bar-item w3-button">Link 3</a>
+    <a title="Dashboard" class="w3-bar-item w3-button"><img src="../../assets/images/DashboardIcon.svg" />Dashboard</a>
+    <a title="Reports" class="w3-bar-item w3-button"><img src="../../assets/images/HelpIcon.svg" />Reports</a>
+    <a title="Logout" class="w3-bar-item w3-button"><img src="../../assets/images/LogoutIcon.svg" />Logout</a>
   </div>
   
   <div id="main">
-  
   <div class="w3-teal">
-   
     <div class="w3-container">
         <nav class="navbar navbar-default">
-          <button id="closeNav" class="w3-bar-item w3-button w3-large"
-            (click)="w3_close()">&times;</button>
-          <button id="openNav" class="w3-button w3-teal w3-xlarge" (click)="w3_open()">&#9776;</button>
-            <!-- Collection of nav links, forms, and other content for toggling -->
-            <div id="navbarCollapse" class="">
-                <form class="navbar-form navbar-middle">
-                    <div class="input-group navbar-middle">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-                        </span>
-                    </div>
-                </form>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Login</a></li>
-                </ul>
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <button id="closeNav" class="w3-bar-item w3-button w3-large"
+                (click)="w3_close()">&times;</button>
+              <button id="openNav" class="w3-button w3-teal w3-xlarge" (click)="w3_open()">&#9776;</button>
             </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="input-group navbar-middle">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right">
+                <span class="userPic"><img src="../../assets/images/YashLogo.jpg" /></span><span class="userDetail">Name<br/>Designation</span>
+            </div>
+          </div>
         </nav>
+        <section class="row dashboardContainet">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+               <span><i class="pdf fa fa-file-pdf-o" ></i><span>Provide the data of pre-onboarding employees by uploading the documents</span></span><br/><br/>
+              <button class="uploadDoc btn btn-primary btn-responsive" type="button" color="primary">
+                 Upload Documents
+                </button>
+                <h4>Recent Job ID Files</h4>
+                <ul class="recentIDs">
+                    <li><span class="fa fa-folder"></span> <span>  MHJSK67K5</span></li>
+                    <li><span class="fa fa-folder"></span> <span>  MHJSK67K5</span></li>
+                    <li><span class="fa fa-folder"></span> <span>  MHJSK67K5</span></li>
+                    <li><span class="fa fa-folder"></span> <span>  MHJSK67K5</span></li>
+                    <li><span class="fa fa-folder"></span> <span>  MHJSK67K5</span></li>
+                  </ul>
+          </div>
+          <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+          <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+              <h4>Recent Employee Files</h4>
+              <ul class="recentEmp">
+                  <li><span class="fa fa-user"></span> <span class="desc"> Name of the employee <br/> <span class="designation">Designation</span></span></li>
+                  <li><span class="fa fa-user"></span> <span class="desc"> Name of the employee <br/> <span class="designation">Designation</span></span></li>
+                  <li><span class="fa fa-user"></span> <span class="desc"> Name of the employee <br/> <span class="designation">Designation</span></span></li>
+                  <li><span class="fa fa-user"></span> <span class="desc"> Name of the employee <br/> <span class="designation">Designation</span></span></li>
+                  <li><span class="fa fa-user"></span> <span class="desc"> Name of the employee <br/> <span class="designation">Designation</span></span></li>
+                </ul>
+          </div>
+        </section>
     </div>
   </div>
 
