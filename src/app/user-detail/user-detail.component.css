@@ -1,7 +1,4 @@
-.mat-card {    
-    text-align: -webkit-center; 
-    width:50%;   
-}    
+  
     
 .demo-toolbar {    
     display: flex;    
@@ -54,11 +51,18 @@ input{
 table{width: 100%;}
 
 .formemail{padding-top:2%;}
-form{width:50%;}
-.content-left{text-align: left; }
+form{width:100%;}
+.emailtextalign{text-align: right;}
 .userdetails{text-align: left; }
 .emaildisplay{display: inline;}
-.detailsbackgruond{background-color: aqua;}
+.detailsbackgruond{background-color: aqua; text-align: center;}
 .upload{padding-left:2%;
         padding-top:2%;
         padding-bottom:2%;}
+
+.email-bottom{padding-bottom: 2%;} 
+
+.textpadding{padding-top: 0.5%;}
+
+
+
