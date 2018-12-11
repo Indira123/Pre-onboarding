@@ -1,4 +1,5 @@
-import { Component, OnInit, Renderer} from '@angular/core';
+import { Component, OnInit, Renderer, ViewChild, ElementRef} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +8,9 @@ import { Component, OnInit, Renderer} from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 isDashboard: boolean;
-constructor(private render: Renderer) {
+file: string;
+@ViewChild('closeBtn') closeBtn: ElementRef;
+constructor(private render: Renderer, private router: Router) {
 
 }
   w3_open() {
@@ -37,6 +40,14 @@ constructor(private render: Renderer) {
       this.isDashboard = false;
     } else if (event.target.getAttribute('title') === 'Dashboard') {
       this.isDashboard = true;
+    }
+  }
+  uploadDoc(): void {
+    if (this.file === undefined) {
+      alert('Please select file');
+    } else {
+      this.router.navigate(['userDetail']);
+      this.closeBtn.nativeElement.click();
     }
   }
 }
