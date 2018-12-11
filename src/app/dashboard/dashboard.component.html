@@ -29,12 +29,11 @@
                   <a title="Logout" routerLink="/login"  class="w3-bar-item w3-button"><img src="../../assets/images/LogoutIcon.svg" />Logout</a>
                 </div>
           </div>
-          <div *ngIf="isDashboard; else reports" class="manDashboard">
-            <app-main-dashboard></app-main-dashboard> 
+          <div class="mainDashboard">
+            <ng-template [ngIf]="isDashboard"><app-main-dashboard></app-main-dashboard></ng-template>
+            <ng-template [ngIf]="isReports"><app-reports ></app-reports></ng-template>
+            <ng-template [ngIf]="isDetailPage"><app-user-detail ></app-user-detail></ng-template>
           </div>
-          <ng-template #reports>
-              <app-reports ></app-reports>
-          </ng-template>
         </section>
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
@@ -45,7 +44,15 @@
                   <h4>Upload documents</h4>
                   <span>Please upload your documents here</span>
                 </div>
-                <div class="modal-body detailsbackgruond ">
+                <div class="modal-body detailsbackgruond">
+                    <div class="form-group">
+                        <select class="form-control" id="sel1">
+                          <option hidden >Select Employment Type</option>
+                          <option>Trainee</option>
+                          <option>Contractor</option>
+                          <option>Lateral</option>
+                        </select>
+                      </div>
                     <div class="form-group">
                         <input type="file" class="form-control-file" [(ngModel)]="file" id="exampleFormControlFile1">
                             <div class="upload">

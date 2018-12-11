@@ -57,6 +57,7 @@ display: inline-block;
 }
 .navbar{
   padding: 10px;
+  background: #c4c4da;
 }
 .w3-button{
   padding: 0;
@@ -86,7 +87,7 @@ display: inline-block;
 
 input[type='file']{
 display: inline;
-padding: 1em 5em;
+padding: 1em 5em 1em 1em;
 border: 1px solid #CCC;
 border-radius: 10px;
 }
@@ -94,8 +95,14 @@ border-radius: 10px;
   color: #AAA;
 }
 .w3-card{
-  box-shadow: none !important;
+  padding: 10px;
+  border-radius: 10px;
+  background:#c4c4da;
 }
 .floatL{
   float: left;
+}
+.detailsbackgruond select{
+  margin: 0 auto;
+  width: 50%;
 }

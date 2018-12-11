@@ -8,17 +8,25 @@ import {Router} from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 isDashboard: boolean;
+isReports: boolean;
+isDetailPage: boolean;
 file: string;
 @ViewChild('closeBtn') closeBtn: ElementRef;
 constructor(private render: Renderer, private router: Router) {
 
 }
   w3_open() {
+    if (this.isDetailPage === true) {
+      document.getElementById('userdetailsCont').style.marginLeft = '25%';
+    }
   document.getElementById('mySidebar').style.display = 'block';
   document.getElementById('openNav').style.display = 'none';
   document.getElementById('closeNav').style.display = 'inline-block';
   }
   w3_close() {
+    if (this.isDetailPage === true) {
+      document.getElementById('userdetailsCont').style.marginLeft = '0%';
+    }
     document.getElementById('main').style.marginLeft = '0%';
     document.getElementById('mySidebar').style.display = 'none';
     document.getElementById('openNav').style.display = 'inline-block';
@@ -27,6 +35,8 @@ constructor(private render: Renderer, private router: Router) {
   ngOnInit() {
     document.getElementById('closeNav').style.display = 'none';
     this.isDashboard = true;
+    this.isReports = false;
+    this.isDetailPage = false;
   }
   addAciveClass(event: any) {
     if (event.target.nextElementSibling !== null ) {
@@ -38,16 +48,23 @@ constructor(private render: Renderer, private router: Router) {
     this.render.setElementClass(event.target, 'active', true);
     if (event.target.getAttribute('title') === 'Reports') {
       this.isDashboard = false;
+      this.isReports = true;
+      this.isDetailPage = false;
     } else if (event.target.getAttribute('title') === 'Dashboard') {
       this.isDashboard = true;
+      this.isReports = false;
+      this.isDetailPage = false;
     }
   }
   uploadDoc(): void {
     if (this.file === undefined) {
-      alert('Please select file');
+      alert('Please select PDF file');
     } else {
-      this.router.navigate(['userDetail']);
+      //this.router.navigate(['userDetail']);
       this.closeBtn.nativeElement.click();
+      this.isDashboard = false;
+      this.isReports = false;
+      this.isDetailPage = true;
     }
   }
 }
