@@ -90,9 +90,10 @@ ul.recentIDs, ul.recentEmp{
   margin: 0;
   padding: 0;
   list-style: none;
-  min-height: 400px;
+  max-height: 400px;
   overflow: scroll;
 }
+
 ul.recentIDs li, ul.recentEmp li{
   padding: 10px;
   text-align:left;
