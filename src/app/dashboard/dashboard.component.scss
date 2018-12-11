@@ -2,107 +2,12 @@
   margin-left:0px;
   margin-right:0px;
 }
-
-#wrapper {
-  padding-left: 70px;
-  transition: all .4s ease 0s;
-  height: 100%
-}
-
-#sidebar-wrapper {
-  margin-left: -150px;
-  left: 70px;
-  width: 150px;
-  background: #222;
-  position: fixed;
-  height: 100%;
-  z-index: 10000;
-  transition: all .4s ease 0s;
-}
-
-.sidebar-nav {
-  display: block;
-  float: left;
-  width: 150px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-#page-content-wrapper {
-  padding-left: 0;
-  margin-left: 0;
-  width: 100%;
-  height: auto;
-}
-#wrapper.active {
-  padding-left: 150px;
-}
-#wrapper.active #sidebar-wrapper {
-  left: 150px;
-}
-
-#page-content-wrapper {
-width: 100%;
-}
-
-#sidebar_menu li a, .sidebar-nav li a {
-  color: #999;
-  display: block;
-  float: left;
-  text-decoration: none;
-  width: 150px;
-  background: #252525;
-  border-top: 1px solid #373737;
-  border-bottom: 1px solid #1A1A1A;
-  -webkit-transition: background .5s;
-  -moz-transition: background .5s;
-  -o-transition: background .5s;
-  -ms-transition: background .5s;
-  transition: background .5s;
-}
-.sidebar_name {
-  padding-top: 25px;
-  color: #fff;
-  opacity: .7;
-}
-
-.sidebar-nav li {
-line-height: 40px;
-text-indent: 20px;
-}
-
-.sidebar-nav li a {
-color: #999999;
-display: block;
-text-decoration: none;
-}
-
-.sidebar-nav li a:hover {
-color: #fff;
-background: rgba(255,255,255,0.2);
-text-decoration: none;
-}
-
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-text-decoration: none;
-}
-
-.sidebar-nav > .sidebar-brand {
-height: 65px;
-line-height: 60px;
-font-size: 18px;
-}
-
-.sidebar-nav > .sidebar-brand a {
-color: #999999;
-}
-
-#main_icon
-{
-  float:right;
- padding-right: 65px;
- padding-top:20px;
+.uploadDoc{
+  padding: 0.8em 5em;
+  background: linear-gradient(to right top, #112db1, #0049c5, #0063d5, #097ce4, #3295f0);
+  color: #FFF;
+  font-weight: bold;
+  border-radius: 15px;
 }
 .sub_icon
 {
@@ -160,58 +65,20 @@ display: inline-block;
   padding: 10px;
   font-weight: 400;
 }
+.w3-bar-item.active{
+  background: linear-gradient(to right top, #112db1, #0049c5, #0063d5, #097ce4, #3295f0);
+  color: #FFF;
+  border-radius: 15px;
+  font-weight: bold;
+}
 .w3-bar-item:hover{
   background-color:#9dc1ec !important;
-
-}
-.w3-bar-item:active{
-  background-color:blue;
-  color: #FFF;
 }
 .input-group input{
   height: 3em;
 }
 .input-group button{
   height: 3em;
-}
-i.pdf{
-  color: red;
-  font-size: 3em;
-  padding-right: 0.7em;
-}
-.uploadDoc{
-  padding: 0.8em 5em;
-  background: blue;
-  color: #FFF;
-  font-weight: bold;
-  border-radius: 15px;
-}
-ul.recentIDs, ul.recentEmp{
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-ul.recentIDs li, ul.recentEmp li{
-  padding: 10px;
-  text-align:left;
-  clear: both;
-  cursor: pointer;
-}
-ul.recentIDs li:hover, ul.recentEmp li:hover{
-  color: blue;
-}
-.recentEmp .fa-user, .recentEmp .desc{
-  float: left;
-  padding-left: 10px;
-}
-.designation{
-  color: #AAA;
-}
-.recentEmp .fa-user{
-  font-size: 2em;
-}
-.dashboardContainet h4{
-text-align: left !important;
 }
 .upload {padding-left:2%;
         padding-top:2%;
@@ -222,4 +89,13 @@ display: inline;
 padding: 1em 5em;
 border: 1px solid #CCC;
 border-radius: 10px;
+}
+.modal-header span{
+  color: #AAA;
+}
+.w3-card{
+  box-shadow: none !important;
+}
+.floatL{
+  float: left;
 }

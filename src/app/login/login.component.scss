@@ -17,7 +17,7 @@
     width: 25rem;
 }
 
-input{
+.loginWrapper .container input{
     background: #e2e4e6 !important;
     border-radius: 25px !important;
     color: #666;
@@ -25,9 +25,10 @@ input{
     width: 23em;
 }
 
-a{
-color: #0821d4;
-font-size: 1.2rem;
+button.forgotPass{
+color: blue !important;
+font-size: 1rem !important;
+background: none !important;
 }
 
   input[type=text], input[type=password] {
@@ -39,7 +40,7 @@ font-size: 1.2rem;
 }
 
 button {
-    background: #0821d4 !important;
+    background: #0821d4 linear-gradient(to right top, #112db1, #0049c5, #0063d5, #097ce4, #3295f0);
     color: white;
     padding: 10px 60px;
     margin: 8px 0;
@@ -89,6 +90,9 @@ span.psw {
        width: 100%;
     }
 }
-form{
+.loginWrapper .container form{
     padding-top: 10%;
+}
+.resetPass{
+    background: #0821d4 linear-gradient(to right top, #112db1, #0049c5, #0063d5, #097ce4, #3295f0);
 }

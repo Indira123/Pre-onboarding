@@ -1,9 +1,3 @@
-<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
-    <a title="Dashboard" class="w3-bar-item w3-button"><img src="../../assets/images/DashboardIcon.svg" />Dashboard</a>
-    <a title="Reports" class="w3-bar-item w3-button"><img src="../../assets/images/HelpIcon.svg" />Reports</a>
-    <a title="Logout" class="w3-bar-item w3-button"><img src="../../assets/images/LogoutIcon.svg" />Logout</a>
-  </div>
-  
   <div id="main">
   <div class="w3-teal">
     <div class="w3-container">
@@ -28,32 +22,19 @@
           </div>
         </nav>
         <section class="row dashboardContainet">
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-               <span><i class="pdf fa fa-file-pdf-o" ></i><span>Provide the data of pre-onboarding employees by uploading the documents</span></span><br/><br/>
-              <button data-toggle="modal" data-target="#myModal" class="uploadDoc btn btn-primary btn-responsive" type="button" color="primary">
-                 Upload Documents
-                </button>
-                <br/>
-                <h4>Recent Job ID Files</h4>
-                <ul class="recentIDs">
-                    <li><span class="fa fa-folder"></span> <span>  MHJSK67K5</span></li>
-                    <li><span class="fa fa-folder"></span> <span>  MHJSK67K5</span></li>
-                    <li><span class="fa fa-folder"></span> <span>  MHJSK67K5</span></li>
-                    <li><span class="fa fa-folder"></span> <span>  MHJSK67K5</span></li>
-                    <li><span class="fa fa-folder"></span> <span>  MHJSK67K5</span></li>
-                  </ul>
+          <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+              <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+                  <a title="Dashboard" routerLink="/dashboard" (click)="addAciveClass($event)" class="w3-bar-item w3-button active"><img src="../../assets/images/DashboardIcon.svg" />Dashboard</a>
+                  <a title="Reports" (click)="addAciveClass($event)" class="w3-bar-item w3-button"><img src="../../assets/images/HelpIcon.svg" />Reports</a>
+                  <a title="Logout" routerLink="/login"  class="w3-bar-item w3-button"><img src="../../assets/images/LogoutIcon.svg" />Logout</a>
+                </div>
           </div>
-          <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-          <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-              <h4>Recent Employee Files</h4>
-              <ul class="recentEmp">
-                  <li><span class="fa fa-user"></span> <span class="desc"> Name of the employee <br/> <span class="designation">Designation</span></span></li>
-                  <li><span class="fa fa-user"></span> <span class="desc"> Name of the employee <br/> <span class="designation">Designation</span></span></li>
-                  <li><span class="fa fa-user"></span> <span class="desc"> Name of the employee <br/> <span class="designation">Designation</span></span></li>
-                  <li><span class="fa fa-user"></span> <span class="desc"> Name of the employee <br/> <span class="designation">Designation</span></span></li>
-                  <li><span class="fa fa-user"></span> <span class="desc"> Name of the employee <br/> <span class="designation">Designation</span></span></li>
-                </ul>
+          <div *ngIf="isDashboard; else reports" class="manDashboard">
+            <app-main-dashboard></app-main-dashboard> 
           </div>
+          <ng-template #reports>
+              <app-reports ></app-reports>
+          </ng-template>
         </section>
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">

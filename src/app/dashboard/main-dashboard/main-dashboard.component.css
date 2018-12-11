@@ -1,0 +1,43 @@
+.uploadDoc{
+    padding: 0.8em 5em;
+    background: linear-gradient(to right top, #112db1, #0049c5, #0063d5, #097ce4, #3295f0);
+    color: #FFF;
+    font-weight: bold;
+    border-radius: 15px;
+  }
+  ul.recentIDs, ul.recentEmp{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    max-height: 400px;
+    overflow: scroll;
+  }
+  
+  ul.recentIDs li, ul.recentEmp li{
+    padding: 10px;
+    text-align:left;
+    clear: both;
+    cursor: pointer;
+  }
+  ul.recentIDs li:hover, ul.recentEmp li:hover{
+    color: blue;
+  }
+  .recentEmp .fa-user, .recentEmp .desc{
+    float: left;
+    padding-left: 10px;
+  }
+  .designation{
+    color: #AAA;
+  }
+  .recentEmp .fa-user{
+    font-size: 2em;
+  }
+  .dashboardContainet h4{
+  text-align: left !important;
+  }
+  i.pdf{
+    color: red;
+    font-size: 3em;
+    padding-right: 0.7em;
+  }
+  
