@@ -1,5 +1,7 @@
 import { Component, OnInit, Renderer, ViewChild, ElementRef} from '@angular/core';
 import {Router} from '@angular/router';
+import { EmpFileUploadService } from './emp.upload';
+import { HttpClient, HttpResponse, HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,8 +13,12 @@ isDashboard: boolean;
 isReports: boolean;
 isDetailPage: boolean;
 file: string;
+selectedFiles: FileList;
+currentFileUpload: File;
+typeOfPDF: string;
+progress: { percentage: number } = { percentage: 0 };
 @ViewChild('closeBtn') closeBtn: ElementRef;
-constructor(private render: Renderer, private router: Router) {
+constructor(private render: Renderer, private router: Router, private uploadService: EmpFileUploadService) {
 
 }
   w3_open() {
@@ -60,11 +66,21 @@ constructor(private render: Renderer, private router: Router) {
     if (this.file === undefined) {
       alert('Please select PDF file');
     } else {
-      //this.router.navigate(['userDetail']);
-      this.closeBtn.nativeElement.click();
-      this.isDashboard = false;
-      this.isReports = false;
-      this.isDetailPage = true;
+      this.progress.percentage = 0;
+      this.currentFileUpload = this.selectedFiles.item(0);
+      this.uploadService.pushFileToStorage(this.currentFileUpload, 'Trainee').subscribe(event => {
+      if (event.type === HttpEventType.UploadProgress) {
+        this.progress.percentage = Math.round(100 * event.loaded / event.total);
+      } else if (event instanceof HttpResponse) {
+        console.log('File is completely uploaded!');
+      }
+    });
+
+    this.selectedFiles = undefined;
     }
+  }
+
+  selectFile(event) {
+    this.selectedFiles = event.target.files;
   }
 }

@@ -46,7 +46,7 @@
                 </div>
                 <div class="modal-body detailsbackgruond">
                     <div class="form-group">
-                        <select class="form-control" id="sel1">
+                        <select [(ngModel)]="typeOfPDF" class="form-control" id="sel1">
                           <option hidden >Select Employment Type</option>
                           <option>Trainee</option>
                           <option>Contractor</option>
@@ -54,12 +54,17 @@
                         </select>
                       </div>
                     <div class="form-group">
-                        <input type="file" class="form-control-file" [(ngModel)]="file" id="exampleFormControlFile1">
+                        <input type="file" (change)="selectFile($event)" class="form-control-file" [(ngModel)]="file" id="exampleFormControlFile1">
                             <div class="upload">
-                              <button type="button" (click)="uploadDoc()" class="btn btn-primary uploadDoc">Submit</button>
+                              <button type="button" [disabled]="!selectedFiles" (click)="uploadDoc()" class="btn btn-primary uploadDoc">Submit</button>
                             </div>
                       </div>
                 </div>
+              </div>
+              <div *ngIf="currentFileUpload" class="progress">
+                <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+                  aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
+                  {{progress.percentage}}%</div>
               </div>
             </div>
           </div>
