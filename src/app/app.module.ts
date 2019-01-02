@@ -9,7 +9,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { MainDashboardComponent } from './dashboard/main-dashboard/main-dashboard.component';
 import { ReportsComponent } from './reports/reports.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { Crud2Component } from './crud2/crud2.component';
+import { NgxNavigationWithDataComponent } from 'ngx-navigation-with-data';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     UserDetailComponent,
     MainDashboardComponent,
-    ReportsComponent
+    ReportsComponent,
+    Crud2Component
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [NgxNavigationWithDataComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {

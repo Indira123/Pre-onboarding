@@ -1,0 +1,211 @@
+<div class="container">
+
+
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a (click)="isBusinessUnit = true;isBusinessGroup = false;get(allBusinessUnit)" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Business Unit 
+        </a>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse in">
+        <div class="panel-body">
+
+          <div class="table-wrapper">
+            <div class="table-title">
+              <div class="row">
+                <div class="col-sm-8"></div>
+                <div class="col-sm-4">
+                  <button type="button" (click)="isBusinessUnit = true;isBusinessGroup = false;resetForm()" data-toggle="modal" data-target="#businessUnitAction" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                </div>
+              </div>
+            </div>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Business Unit Name</th>
+                  <th>Business Unit Head</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let bUnit of allBusinessUnits">
+                  <td>{{bUnit.businessUnitId}}</td>
+                  <td>{{bUnit.businessUnit}}</td>
+                  <td>{{bUnit.businessUnitHead}}</td>
+                  <td>
+                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+
+                    <a  data-toggle="modal" (click)="isBusinessUnit = true;isBusinessGroup = false;onBUEditClick(bUnit);" data-target="#businessUnitAction" class="edit add-new"><i class="material-icons">&#xE254;</i></a>
+                    <a class="delete" (click)="isBusinessUnit = true;isBusinessGroup = false;delete(bUnit.businessUnitId,deleteBusinessUnit)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a (click)="isBusinessGroup = true;isBusinessUnit = false;get(allBusinessGroups);isEdit=true;" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          Business Group
+        </a>
+        </h4>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse">
+        <div class="panel-body">
+          
+          <div class="table-wrapper">
+            <div class="table-title">
+              <div class="row">
+                <div class="col-sm-8"></div>
+                <div class="col-sm-4">
+                  <button type="button" (click)="isBusinessGroup = true;isBusinessUnit = false;resetForm();" data-toggle="modal" data-target="#businessGroupAction" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                </div>
+              </div>
+            </div>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Business Group Name</th>
+                  <th>Business Group Head</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let bUnit of allBusinessGroup">
+                  <td>{{bUnit.businessGroupId}}</td>
+                  <td>{{bUnit.businessGroup}}</td>
+                  <td>{{bUnit.businessGroupHead}}</td>
+                  <td>
+                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+
+                    <a  data-toggle="modal" (click)="isBusinessGroup = true;isBusinessUnit = false;onBGEditClick(bUnit);" data-target="#businessGroupAction" class="edit add-new"><i class="material-icons">&#xE254;</i></a>
+                    <a class="delete" (click)="isBusinessGroup = true;isBusinessUnit = false;delete(bUnit.businessGroupId,deleteBusinessGroup)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          Previous Employer
+        </a>
+        </h4>
+      </div>
+      <div id="collapseThree" class="panel-collapse collapse">
+        <div class="panel-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+          non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+          aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+          craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+          occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+          labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- The Modal - Business Unit -->
+<div class="modal" id="businessUnitAction">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Business Unit</h4>
+        <button type="button" (click)="resetForm()" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-3">
+            <label>Business Unit Name:</label>
+          </div>
+          <div class="col-lg-9 col-md-9 col-sm-9">
+            <input [(ngModel)]="businessUnit.businessUnit" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-3">
+            <label>Business Unit Head:</label>
+          </div>
+          <div class="col-lg-9 col-md-9 col-sm-9">
+            <input [(ngModel)]="businessUnit.businessUnitHead" type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" *ngIf="isEdit" (click)='isBusinessUnit = true;isBusinessGroup = false;edit(businessUnit.businessUnitId ,updateBusinessUnit, businessUnit)' class="btn btn-primary" data-dismiss="modal">Edit</button>
+        <button type="button" *ngIf="!isEdit" (click)='isBusinessUnit = true;isBusinessGroup = false;addNew(addBusinessUnit, businessUnit)' class="btn btn-primary" data-dismiss="modal">Add</button>
+        <button type="reset" (click)="resetForm()" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- The Modal - Business Group -->
+<div class="modal" id="businessGroupAction">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Business Group</h4>
+        <button type="button" (click)="resetForm()" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-3">
+            <label>Business Group Name:</label>
+          </div>
+          <div class="col-lg-9 col-md-9 col-sm-9">
+            <input [(ngModel)]="businessGroup.businessGroup" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-3">
+            <label>Business Group Head:</label>
+          </div>
+          <div class="col-lg-9 col-md-9 col-sm-9">
+            <input [(ngModel)]="businessGroup.businessGroupHead" type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" *ngIf="isEdit" (click)='isBusinessGroup = true;isBusinessUnit = false;edit(businessGroup.businessGroupId ,updateBusinessGroup, businessGroup)' class="btn btn-primary" data-dismiss="modal">Edit</button>
+        <button type="button" *ngIf="!isEdit" (click)='isBusinessGroup = true;isBusinessUnit = false;addNew(addBusinessGroup, businessGroup)' class="btn btn-primary" data-dismiss="modal">Add</button>
+        <button type="reset" (click)="resetForm()" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+</div>

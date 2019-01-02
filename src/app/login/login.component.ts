@@ -30,7 +30,9 @@ export class LoginComponent implements OnInit {
     };
     this.dataserviceService.loginService(this.data).subscribe((dataRes) => {
       console.log(dataRes);
-      this.router.navigate(['dashboard']);
+      localStorage.setItem('username',this.username);
+      localStorage.setItem('password',this.password);
+      this.router.navigate(['dashboard']); 
     });
   }
   ngOnInit() {

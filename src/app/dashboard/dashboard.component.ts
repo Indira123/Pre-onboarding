@@ -1,7 +1,10 @@
 import { Component, OnInit, Renderer, ViewChild, ElementRef} from '@angular/core';
 import {Router} from '@angular/router';
 import { EmpFileUploadService } from './emp.upload';
-import { HttpClient, HttpResponse, HttpEventType } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpEventType, HttpRequest, HttpEvent, HttpHeaders } from '@angular/common/http';
+import {ReqBody} from './custom.type';
+import { $ } from 'protractor';
+import { NgxNavigationWithDataComponent } from 'ngx-navigation-with-data';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,6 +12,7 @@ import { HttpClient, HttpResponse, HttpEventType } from '@angular/common/http';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+
 isDashboard: boolean;
 isReports: boolean;
 isDetailPage: boolean;
@@ -16,9 +20,16 @@ file: string;
 selectedFiles: FileList;
 currentFileUpload: File;
 typeOfPDF: string;
+ReqBody: {
+  'userName': string,
+  'typeOfPDF': string
+};
+emailID: any;
 progress: { percentage: number } = { percentage: 0 };
 @ViewChild('closeBtn') closeBtn: ElementRef;
-constructor(private render: Renderer, private router: Router, private uploadService: EmpFileUploadService) {
+
+constructor(private render: Renderer, public navCtrl: NgxNavigationWithDataComponent, private http: HttpClient, private router: Router,
+   private uploadService: EmpFileUploadService) {
 
 }
   w3_open() {
@@ -63,19 +74,35 @@ constructor(private render: Renderer, private router: Router, private uploadServ
     }
   }
   uploadDoc(): void {
+    debugger;
     if (this.file === undefined) {
       alert('Please select PDF file');
     } else {
       this.progress.percentage = 0;
       this.currentFileUpload = this.selectedFiles.item(0);
-      this.uploadService.pushFileToStorage(this.currentFileUpload, 'Trainee').subscribe(event => {
+      let reqBody: ReqBody;
+      reqBody = {
+        'userName': 'vijaya.tiple',
+        'typeOfPDF': 'Trainee'
+      };
+
+      this.uploadService.pushFileToStorage(this.currentFileUpload, reqBody.userName, reqBody.typeOfPDF).subscribe(event => {
       if (event.type === HttpEventType.UploadProgress) {
         this.progress.percentage = Math.round(100 * event.loaded / event.total);
       } else if (event instanceof HttpResponse) {
         console.log('File is completely uploaded!');
+        console.log(event.body);
+        this.emailID = event.body;
+        // this.uploadService.getUserDetails( this.emailID ).subscribe(ev => {
+        //   if (ev instanceof HttpResponse) {
+        //     console.log(ev.body);
+        //    // this.navCtrl.navigate('userDetail/', ev.body);
+        //     //this.navCtrl.data(ev.body);
+            this.router.navigate(['/userDetail', this.emailID]);
+        // }
+        // });
       }
     });
-
     this.selectedFiles = undefined;
     }
   }

@@ -21,7 +21,7 @@
                <div class="form-group row">
                   <label for="rrfid" class="col-sm-2 col-form-label col-form-label-sm userdetails textpadding">RRFID</label>
                   <div class="col-sm-3">   
-                  <input class="form-control form-control-sm" type="text" id="rrfid" placeholder="RRFID">
+                  <input class="form-control form-control-sm" [(ngModel)]="userDetailsForm.requisitionID" [ngModelOptions]="{standalone: true}" type="text" id="rrfid" placeholder="RRFID">
                   </div>
                </div>
         
@@ -29,14 +29,14 @@
           <div class="form-group  row">
             <label for="candidatename" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Candidate Name</label>
               <div class="col-sm-3">
-              <input class="form-control form-control-sm" type="text" id="candidatename" placeholder="Candidate Name">
+              <input class="form-control form-control-sm" [(ngModel)]="userDetailsForm.cndName" [ngModelOptions]="{standalone: true}" type="text" id="candidatename" placeholder="Candidate Name">
               </div>
         
               <label for="gender" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Gender</label>
               <div class="col-sm-3">
-              <select class="form-control" id="gender">
-              <option>Male</option>
-              <option>Female</option>
+              <select [(ngModel)]="userDetailsForm.gender" [ngModelOptions]="{standalone: true}" class="form-control" id="gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
               </select>
               </div>
            </div>
@@ -45,12 +45,12 @@
           <div class="form-group row">
            <label for="Contact" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Contact No.</label>
            <div class="col-sm-3">
-           <input class="form-control form-control-sm" type="number" id="Contact" placeholder="Contact No">
+           <input [(ngModel)]="userDetailsForm.contactNumber" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm" type="number" id="Contact" placeholder="Contact No">
            </div>
           
            <label for="EmailID" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Email ID</label>
            <div class="col-sm-3">
-           <input type="email" class="form-control form-control-sm" id="EmailID" placeholder="Email ID">
+           <input type="email" [(ngModel)]="userDetailsForm.emailId" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm" id="EmailID" placeholder="Email ID">
            </div>
           </div>   
                   
@@ -58,7 +58,7 @@
           <div class="form-group row">
              <label for="Group" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Group</label>
              <div class="col-sm-3">
-             <select class="form-control" id="Group" >
+             <select class="form-control" [(ngModel)]="userDetailsForm.groupId" [ngModelOptions]="{standalone: true}" id="Group" >
                 <option>Default select</option>
                 <option>SAP</option>
                 <option>Default select</option>
@@ -68,12 +68,12 @@
             
              <label for="BG" class="col-sm-1 col-form-label col-form-label-sm textpadding userdetails">BG</label>
              <div class="col-sm-1">
-             <input type="text" class="form-control form-control-sm" id="BG" placeholder="BG">
+             <input type="text" [(ngModel)]="userDetailsForm.businessGroup.businessGroup" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm" id="BG" placeholder="BG">
              </div>
         
              <label for="BU" class="col-sm-1 col-form-label col-form-label-sm textpadding userdetails">BU</label>
              <div class="col-sm-1">
-             <input type="text" class="form-control form-control-sm" id="BU" placeholder="BU">
+             <input type="text" [(ngModel)]="userDetailsForm.businessUnit.businessUnit" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm" id="BU" placeholder="BU">
              </div>
            </div>   
         
@@ -81,12 +81,12 @@
            <div class="form-group row">
               <label for="BGH" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">BGH</label>
               <div class="col-sm-3">
-              <input class="form-control form-control-sm" type="text" id="BGH" placeholder="BGH">
+              <input class="form-control form-control-sm" [(ngModel)]="userDetailsForm.businessGroup.businessGroupHead" [ngModelOptions]="{standalone: true}" type="text" id="BGH" placeholder="BGH">
               </div>
              
               <label for="BUH" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">BUH</label>
               <div class="col-sm-3">
-              <input type="text" class="form-control form-control-sm" id="BUH" placeholder="BUH">
+              <input type="text" [(ngModel)]="userDetailsForm.businessUnit.businessUnitHead" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm" id="BUH" placeholder="BUH">
               </div>
             </div> 
         
@@ -94,12 +94,12 @@
              <div class="form-group row">
                 <label for="Reporting" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Reporting To</label>
                 <div class="col-sm-3">
-                <input class="form-control form-control-sm" type="text" id="Reporting" placeholder="Reporting To">
+                <input class="form-control form-control-sm" [(ngModel)]="userDetailsForm.employment.reportingTo" [ngModelOptions]="{standalone: true}" type="text" id="Reporting" placeholder="Reporting To">
                 </div>
                
                 <label for="GHAvailment" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">GH Availment</label>
                   <div class="col-sm-3">
-                   <select class="form-control" id="GHAvailment" >
+                   <select class="form-control" [(ngModel)]="userDetailsForm.employment.guestHouse" [ngModelOptions]="{standalone: true}" id="GHAvailment" >
                     <option>Default select</option>
                     <option>YES</option>
                     <option>NO</option>
@@ -110,12 +110,17 @@
               <div class="form-group row">
                   <label for="NatureofHiring" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Nature of Hiring</label>
                   <div class="col-sm-3">
-                  <input class="form-control form-control-sm" type="text" id="NatureofHiring" placeholder="Nature of Hiring">
+                  <!--<input class="form-control form-control-sm" type="text" id="NatureofHiring" placeholder="Nature of Hiring">-->
+                  <select class="form-control" [(ngModel)]="userDetailsForm.employment.natureOfHiring" [ngModelOptions]="{standalone: true}" id="GHAvailment" >
+                    <option value="Resource Pool">Resource Pool</option>
+                    <option value="Staffing">Staffing</option>
+                    <option value="Contracting">Contracting</option>
+                    </select>
                   </div>
                  
                   <label for="Client" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Client(Hiring For)</label>
                   <div class="col-sm-3">
-                  <input type="text" class="form-control form-control-sm" id="Client" placeholder="Client">
+                  <input type="text" [(ngModel)]="userDetailsForm.employment.clientFor" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm" id="Client" placeholder="Client">
                   </div>
                 </div>    
         
@@ -123,12 +128,12 @@
                 <div class="form-group row">
                     <label for="OfferYear" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Offer Year</label>
                     <div class="col-sm-3">
-                    <input class="form-control form-control-sm" type="text" id="OfferYear" placeholder="OfferYear">
+                    <input class="form-control form-control-sm" type="text" [(ngModel)]="userDetailsForm.employment.offerYear" [ngModelOptions]="{standalone: true}" id="OfferYear" placeholder="OfferYear">
                     </div>
                    
                     <label for="TalentAdvisor" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Talent Advisor</label>
                     <div class="col-sm-3">
-                    <input type="text" class="form-control form-control-sm" id="TalentAdvisor" placeholder="Talent Advisor">
+                    <input type="text" [(ngModel)]="userDetailsForm.employment.talentAdvisor" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm" id="TalentAdvisor" placeholder="Talent Advisor">
                     </div>
                   </div>     
         
@@ -136,7 +141,7 @@
                   <div class="form-group row">
                       <label for="PHVInitiated" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">PHV Initiated</label>
                           <div class="col-sm-3">
-                          <select class="form-control" id="PHVInitiated" >
+                          <select [(ngModel)]="userDetailsForm.employment.phv_Initiated" [ngModelOptions]="{standalone: true}" class="form-control" id="PHVInitiated" >
                           <option>Default select</option>
                           <option>YES</option>
                           <option>NO</option>
@@ -145,7 +150,7 @@
                      
                       <label for="Skills" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Skills</label>
                       <div class="col-sm-3">
-                      <input type="text" class="form-control form-control-sm" id="Skills" placeholder="Skills">
+                      <input type="text" [(ngModel)]="userDetailsForm.skillName" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm" id="Skills" placeholder="Skills">
                       </div>
                     </div>
                     
@@ -153,12 +158,12 @@
                     <div class="form-group row">
                         <label for="Designation" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Designation</label>
                         <div class="col-sm-3">
-                        <input class="form-control form-control-sm" type="text" id="Designation" placeholder="Designation">
+                        <input class="form-control form-control-sm" [(ngModel)]="userDetailsForm.designation" [ngModelOptions]="{standalone: true}" type="text" id="Designation" placeholder="Designation">
                         </div>
                        
                         <label for="Grade" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Grade</label>
                         <div class="col-sm-3">
-                        <input type="text" class="form-control form-control-sm" id="Grade" placeholder="Grade">
+                        <input type="text" [(ngModel)]="userDetailsForm.grade" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm" id="Grade" placeholder="Grade">
                         </div>
                       </div>
         
@@ -166,12 +171,12 @@
                     <div class="form-group row">
                           <label for="ExpectedDateofJoining" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Expected Date of Joining</label>
                           <div class="col-sm-3">
-                          <input class="form-control form-control-sm" type="date" id="ExpectedDateofJoining" >
+                          <input [(ngModel)]="userDetailsForm.expctdDateOfJoining" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm" type="date" id="ExpectedDateofJoining" >
                           </div>
                          
                           <label for="Status" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Status</label>
                             <div class="col-sm-3">
-                             <select class="form-control" id="Status" >
+                             <select [(ngModel)]="userDetailsForm.status" [ngModelOptions]="{standalone: true}" class="form-control" id="Status" >
                               <option>Default select</option>
                               <option>Yet To join</option>
                               <option>NO</option>
@@ -183,12 +188,12 @@
                 <div class="form-group row">
                       <label for="PrimaryBaseLocation" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Primary Base Location</label>
                        <div class="col-sm-3">
-                       <input class="form-control form-control-sm" type="text" id="PrimaryBaseLocation" placeholder="Primary Base Location">
+                       <input [(ngModel)]="userDetailsForm.employment.baseLocation" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm" type="text" id="PrimaryBaseLocation" placeholder="Primary Base Location">
                        </div>
                    
                       <label for="ReportingLocation" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Reporting Location</label>
                       <div class="col-sm-3">
-                       <input type="text" class="form-control form-control-sm" id="ReportingLocation" placeholder="Reporting Location">
+                       <input type="text" [(ngModel)]="userDetailsForm.employment.reportingLocation" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm" id="ReportingLocation" placeholder="Reporting Location">
                       </div>
                   </div>
         
@@ -196,7 +201,7 @@
                   <div class="form-group row">
                       <label for="PresentFixedCTC" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Present Fixed CTC</label>
                        <div class="col-sm-3">
-                       <input class="form-control form-control-sm" type="text" id="PresentFixedCTC" placeholder="Present Fixed CTC">
+                       <input class="form-control form-control-sm" [(ngModel)]="userDetailsForm.salaryDetails.ctc" [ngModelOptions]="{standalone: true}" type="text" id="PresentFixedCTC" placeholder="Present Fixed CTC">
                        </div>
                    
                       <label for="PresentVariableCTC" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Present Variable CTC</label>
@@ -209,12 +214,12 @@
                   <div class="form-group row">
                       <label for="ProposedFixedSalary" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Proposed Fixed Salary</label>
                        <div class="col-sm-3">
-                       <input class="form-control form-control-sm" type="text" id="ProposedFixedSalary" placeholder="Proposed Fixed Salary">
+                       <input class="form-control form-control-sm" [(ngModel)]="userDetailsForm.salaryDetails.ctc" [ngModelOptions]="{standalone: true}" type="text" id="ProposedFixedSalary" placeholder="Proposed Fixed Salary">
                        </div>
                    
                       <label for="ProposedVariableSalary" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Proposed Variable Salary</label>
                       <div class="col-sm-3">
-                       <input type="text" class="form-control form-control-sm" id="ProposedVariableSalary" placeholder="Proposed Variable Salary">
+                       <input type="text" [(ngModel)]="userDetailsForm.salaryDetails.variable" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm" id="ProposedVariableSalary" placeholder="Proposed Variable Salary">
                       </div>
                   </div>
         
@@ -222,12 +227,12 @@
                   <div class="form-group row">
                       <label for="Hike" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">% of Hike</label>
                        <div class="col-sm-3">
-                       <input class="form-control form-control-sm" type="text" id="Hike" placeholder="% of Hike">
+                       <input class="form-control form-control-sm" [(ngModel)]="userDetailsForm.recruiter" [ngModelOptions]="{standalone: true}" type="text" id="Hike" placeholder="% of Hike">
                        </div>
                    
                       <label for="Recruiter" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Recruiter</label>
                       <div class="col-sm-3">
-                       <input type="text" class="form-control form-control-sm" id="Recruiter" placeholder="Recruiter">
+                       <input type="text" [(ngModel)]="userDetailsForm.recruiter" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm" id="Recruiter" placeholder="Recruiter">
                       </div>
                   </div>
         
@@ -235,12 +240,12 @@
                   <div class="form-group row">
                       <label for="OfferreleaseDate" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Offer release Date</label>
                        <div class="col-sm-3">
-                       <input class="form-control form-control-sm" type="date" id="OfferreleaseDate" >
+                       <input class="form-control form-control-sm" [(ngModel)]="userDetailsForm.salaryDetails.joiningBonus" [ngModelOptions]="{standalone: true}" type="date" id="OfferreleaseDate" >
                        </div>
                    
                       <label for="JoiningBonus" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Joining Bonus</label>
                       <div class="col-sm-3">
-                       <input type="text" class="form-control form-control-sm" id="JoiningBonus" placeholder="Joining Bonus">
+                       <input type="text" [(ngModel)]="userDetailsForm.salaryDetails.joiningBonus" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm" id="JoiningBonus" placeholder="Joining Bonus">
                       </div>
                   </div>
         
@@ -248,12 +253,12 @@
                   <div class="form-group row">
                       <label for="CurrentEmployer" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Current Employer</label>
                        <div class="col-sm-3">
-                       <input class="form-control form-control-sm" type="text" id="CurrentEmployer" placeholder="Current Employer">
+                       <input class="form-control form-control-sm" [(ngModel)]="userDetailsForm.salaryDetails.previousEmployment" [ngModelOptions]="{standalone: true}" type="text" id="CurrentEmployer" placeholder="Current Employer">
                        </div>
                    
                       <label for="Source" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Source</label>
                       <div class="col-sm-3">
-                       <input type="text" class="form-control form-control-sm" id="Source" placeholder="Source">
+                       <input type="text" [(ngModel)]="userDetailsForm.source" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm" id="Source" placeholder="Source">
                       </div>
                   </div>
         
@@ -261,12 +266,12 @@
                   <div class="form-group row">
                       <label for="CurrentLocation" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Current Location</label>
                        <div class="col-sm-3">
-                       <input class="form-control form-control-sm" type="text" id="CurrentLocation" placeholder="Current Location">
+                       <input class="form-control form-control-sm" [(ngModel)]="userDetailsForm.refreeName" [ngModelOptions]="{standalone: true}" type="text" id="CurrentLocation" placeholder="Current Location">
                        </div>
                    
                       <label for="Refree" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Refree Name/Vendor Name</label>
                       <div class="col-sm-3">
-                       <input type="text" class="form-control form-control-sm" id="Refree" placeholder="Refree Name/Vendor Name">
+                       <input type="text" [(ngModel)]="userDetailsForm.refreeName" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm" id="Refree" placeholder="Refree Name/Vendor Name">
                       </div>
                   </div>
         
@@ -274,12 +279,12 @@
                   <div class="form-group row">
                       <label for="Onboarding" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Onboarding Lead Time</label>
                        <div class="col-sm-3">
-                       <input class="form-control form-control-sm" type="text" id="Onboarding" placeholder="Onboarding Lead Time">
+                       <input class="form-control form-control-sm" [(ngModel)]="userDetailsForm.onboardingLeadTime" [ngModelOptions]="{standalone: true}" type="text" id="Onboarding" placeholder="Onboarding Lead Time">
                        </div>
                    
                       <label for="Acknowledgement" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Offer Acknowledgement</label>
                       <div class="col-sm-3">
-                       <input type="text" class="form-control form-control-sm" id="Acknowledgement" placeholder="Offer Acknowledgement">
+                       <input type="text" [(ngModel)]="userDetailsForm.offerAcknowledgement" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm" id="Acknowledgement" placeholder="Offer Acknowledgement">
                       </div>
                   </div>
         
@@ -287,7 +292,7 @@
                   <div class="form-group row">
                       <label for="Seperation" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Seperation Email</label>
                           <div class="col-sm-3">
-                          <select class="form-control" id="Seperation" >
+                          <select [(ngModel)]="userDetailsForm.teamOwner" [ngModelOptions]="{standalone: true}" class="form-control" id="Seperation" >
                           <option>Default select</option>
                           <option>YES</option>
                           <option>NO</option>
@@ -296,7 +301,7 @@
                      
                       <label for="TeamOwner" class="col-sm-2 col-form-label col-form-label-sm textpadding userdetails">Team Owner</label>
                       <div class="col-sm-3">
-                      <input type="text" class="form-control form-control-sm" id="TeamOwner" placeholder="Team Owner">
+                      <input type="text" [(ngModel)]="userDetailsForm.teamOwner" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm" id="TeamOwner" placeholder="Team Owner">
                       </div>
                     </div>
         
@@ -304,7 +309,7 @@
                     <div class="form-group row">
                         <label for="Remarks" class="col-sm-2 col-form-label col-form-label-sm userdetails textpadding">Remarks/Comments</label>
                         <div class="col-sm-3">   
-                        <input class="form-control form-control-sm" type="text" id="Remarks" placeholder="Remarks/Comments">
+                        <input class="form-control form-control-sm" [(ngModel)]="userDetailsForm.remarksDetails" [ngModelOptions]="{standalone: true}" type="text" id="Remarks" placeholder="Remarks/Comments">
                         </div>
                      </div>
         </form>
