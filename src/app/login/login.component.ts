@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       console.log(dataRes);
       localStorage.setItem('username',this.username);
       localStorage.setItem('password',this.password);
-      this.router.navigate(['dashboard']); 
+      this.router.navigate(['dashboard']);
     });
   }
   ngOnInit() {
